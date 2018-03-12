@@ -5,7 +5,7 @@ go:
   - 1.9.x
 
 script:
-  - go test -v -cover $(go list ./... | grep -v /vendor/) -coverprofile=coverage.txt -covermode=atomic
+  - ./ci/test.sh
 
 before_install:
   - go get -u github.com/golang/dep/cmd/dep
