@@ -21,8 +21,8 @@ func CreateCompatibleDockerClient(onVersionSpecified, onVersionDetermined, onUsi
 	} else {
 		maxMajorVersion, maxMinorVersion := parseVersion(api.DefaultVersion)
 		minMajorVersion, minMinorVersion := parseVersion(api.MinVersion)
-		for majorVersion := minMajorVersion; majorVersion <= maxMajorVersion; majorVersion++ {
-			for minorVersion := minMinorVersion; minorVersion <= maxMinorVersion; minorVersion++ {
+		for majorVersion := maxMajorVersion; majorVersion >= minMajorVersion; majorVersion-- {
+			for minorVersion := maxMinorVersion; minorVersion >= minMinorVersion; minorVersion-- {
 				apiVersion := fmt.Sprintf("%d.%d", majorVersion, minorVersion)
 				os.Setenv(dockerApiVersion, apiVersion)
 				docker, err := client.NewEnvClient()
@@ -33,6 +33,7 @@ func CreateCompatibleDockerClient(onVersionSpecified, onVersionDetermined, onUsi
 					onVersionDetermined(apiVersion)
 					return docker, nil
 				}
+				docker.Close()
 			}
 		}
 		onUsingDefaultVersion(api.DefaultVersion)
