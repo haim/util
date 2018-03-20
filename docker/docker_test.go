@@ -13,7 +13,7 @@ import (
 
 var (
 	mockDockerServer *httptest.Server
-	apiVersion       = "1.36"
+	apiVersion       = "1.29"
 )
 
 func init() {
@@ -50,20 +50,20 @@ func mux() http.Handler {
 }
 
 func TestCreateCompatibleDockerClient(t *testing.T) {
-	testCreateCompatibleDockerClient(t, "1.36")
+	testCreateCompatibleDockerClient(t, "1.29")
 }
 
-func TestCreateDockerClientVersionSpeficied(t *testing.T) {
-	os.Setenv("DOCKER_API_VERSION", "1.29")
+func TestCreateDockerClientVersionSpecified(t *testing.T) {
+	os.Setenv("DOCKER_API_VERSION", "1.27")
 	defer os.Unsetenv("DOCKER_API_VERSION")
-	testCreateCompatibleDockerClient(t, "1.29")
+	testCreateCompatibleDockerClient(t, "1.27")
 }
 
 func TestCreateDockerClientDefaultVersion(t *testing.T) {
 	major, minor := parseVersion(api.DefaultVersion)
-	apiVersion := fmt.Sprintf("%d.%d", major, minor+1)
+	apiVersion = fmt.Sprintf("%d.%d", major, minor+1)
 	defer func() {
-		apiVersion = "1.36"
+		apiVersion = "1.29"
 	}()
 	testCreateCompatibleDockerClient(t, api.DefaultVersion)
 }
