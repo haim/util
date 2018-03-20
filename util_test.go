@@ -29,3 +29,16 @@ func TestRequestInfoAnonymous(t *testing.T) {
 	AssertThat(t, user, EqualTo{"unknown"})
 	AssertThat(t, remote, EqualTo{"some-addr.example.com"})
 }
+
+func TestHostPort(t *testing.T) {
+	AssertThat(t, HostPort("tcp://localhost:4243"), EqualTo{"localhost:4243"})
+}
+
+func TestWrongHostPort(t *testing.T) {
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+	HostPort("$%:wrong-url")
+}

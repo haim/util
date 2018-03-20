@@ -3,6 +3,7 @@ package util
 import (
 	"net"
 	"net/http"
+	"net/url"
 	"time"
 )
 
@@ -23,4 +24,12 @@ func RequestInfo(r *http.Request) (string, string) {
 	}
 	remote, _, _ = net.SplitHostPort(r.RemoteAddr)
 	return user, remote
+}
+
+func HostPort(input string) string {
+	u, err := url.Parse(input)
+	if err != nil {
+		panic(err)
+	}
+	return u.Host
 }
