@@ -16,12 +16,12 @@
 [[projects]]
   name = "github.com/docker/distribution"
   packages = ["digestset","reference"]
-  revision = "277ed486c948042cab91ad367c379524f3b25e18"
+  revision = "83389a148052d74ac602f5f1d62f86ff2f3c4aa5"
 
 [[projects]]
   name = "github.com/docker/docker"
   packages = ["api","api/types","api/types/blkiodev","api/types/container","api/types/events","api/types/filters","api/types/image","api/types/mount","api/types/network","api/types/registry","api/types/strslice","api/types/swarm","api/types/swarm/runtime","api/types/time","api/types/versions","api/types/volume","client"]
-  revision = "92309e34e42aec3a0e041403bdd3c4fc0dc20269"
+  revision = "635f359f8b61887faa9427d9c673be96faf992b5"
 
 [[projects]]
   name = "github.com/docker/go-connections"
@@ -74,6 +74,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "def1ec2b22ed4a8fc79f67ae3f656a47581f5389ae295d9c67ce447b1b206108"
+  inputs-digest = "92f786ce913533cf0c499284006b6140bc6cef902e96a9b328da0c07d8b07c84"
   solver-name = "gps-cdcl"
   solver-version = 1
