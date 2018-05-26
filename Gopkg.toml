@@ -27,8 +27,4 @@
 
 [[constraint]]
   name = "github.com/docker/docker"
-  revision = "635f359f8b61887faa9427d9c673be96faf992b5"
-  
-[[override]]
-  name = "github.com/docker/distribution"
-  revision = "83389a148052d74ac602f5f1d62f86ff2f3c4aa5"
+  revision = "9c2c887b125df56e622d20ebbbe626c55b61e44a"
