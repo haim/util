@@ -2,10 +2,10 @@ sudo: required
 language: go
 
 go:
-  - 1.9.x
+  - 1.10.x
 
 script:
-  - ./ci/test.sh
+  - go test -race -v -coverprofile=coverage.txt -covermode=atomic ./...
 
 before_install:
   - go get -u github.com/golang/dep/cmd/dep
