@@ -24,12 +24,14 @@ func JsonError(w http.ResponseWriter, msg string, code int) {
 		})
 }
 
+const UnknownUser = "unknown"
+
 func RequestInfo(r *http.Request) (string, string) {
 	user := ""
 	if u, _, ok := r.BasicAuth(); ok {
 		user = u
 	} else {
-		user = "unknown"
+		user = UnknownUser
 	}
 	remote := r.Header.Get("X-Forwarded-For")
 	if remote != "" {
