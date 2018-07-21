@@ -16,12 +16,12 @@
 [[projects]]
   name = "github.com/docker/distribution"
   packages = ["digestset","reference"]
-  revision = "83389a148052d74ac602f5f1d62f86ff2f3c4aa5"
+  revision = "0dae0957e5fe3156c265d22bef4cba9efbf388e2"
 
 [[projects]]
   name = "github.com/docker/docker"
-  packages = ["api","api/types","api/types/blkiodev","api/types/container","api/types/events","api/types/filters","api/types/image","api/types/mount","api/types/network","api/types/registry","api/types/strslice","api/types/swarm","api/types/swarm/runtime","api/types/time","api/types/versions","api/types/volume","client"]
-  revision = "9c2c887b125df56e622d20ebbbe626c55b61e44a"
+  packages = ["api","api/types","api/types/blkiodev","api/types/container","api/types/events","api/types/filters","api/types/image","api/types/mount","api/types/network","api/types/registry","api/types/strslice","api/types/swarm","api/types/swarm/runtime","api/types/time","api/types/versions","api/types/volume","client","errdefs"]
+  revision = "1ef1cc8388165b2b848f9b3f53ec91c87de09f63"
 
 [[projects]]
   name = "github.com/docker/go-connections"
@@ -74,6 +74,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "215f8bbacccfaae9629811cfc970e212865e999dea3bfe16af29f32c4d61c908"
+  inputs-digest = "3128439c5a5441d2671fd0bb627beb0a8394e8e0cef64b44f71fb7b52ee4f226"
   solver-name = "gps-cdcl"
   solver-version = 1
