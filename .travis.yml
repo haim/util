@@ -2,16 +2,11 @@ sudo: required
 language: go
 
 go:
-  - 1.10.x
+  - 1.11.x
 
 script:
+  - export GO111MODULE="on"
   - go test -race -v -coverprofile=coverage.txt -covermode=atomic ./...
-
-before_install:
-  - go get -u github.com/golang/dep/cmd/dep
-  
-install:
-  - dep ensure
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
