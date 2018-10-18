@@ -1,4 +1,3 @@
 .idea
 *.iml
 coverage.txt
-vendor/*/
