@@ -25,7 +25,7 @@ func CreateCompatibleDockerClient(onVersionSpecified, onVersionDetermined, onUsi
 			for minorVersion := maxMinorVersion; minorVersion >= minMinorVersion; minorVersion-- {
 				apiVersion := fmt.Sprintf("%d.%d", majorVersion, minorVersion)
 				os.Setenv(dockerApiVersion, apiVersion)
-				docker, err := client.NewEnvClient()
+				docker, err := client.NewClientWithOpts(client.FromEnv)
 				if err != nil {
 					return nil, err
 				}
@@ -38,7 +38,7 @@ func CreateCompatibleDockerClient(onVersionSpecified, onVersionDetermined, onUsi
 		}
 		onUsingDefaultVersion(api.DefaultVersion)
 	}
-	return client.NewEnvClient()
+	return client.NewClientWithOpts(client.FromEnv)
 }
 
 func isDockerAPIVersionCorrect(docker *client.Client) bool {

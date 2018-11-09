@@ -10,7 +10,7 @@ import (
 
 // the amount of time to wait when pushing a message to
 // a slow client or a client that closed after `range clients` started.
-const patience time.Duration = time.Second * 1
+const patience = 1 * time.Second
 
 type Broker interface {
 	http.Handler
@@ -67,7 +67,7 @@ func (sse *SseBroker) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 
 	for {
 		select {
-		case <-rw.(http.CloseNotifier).CloseNotify():
+		case <-req.Context().Done():
 			{
 				return
 			}
